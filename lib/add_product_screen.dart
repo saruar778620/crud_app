@@ -8,11 +8,13 @@ class addProductScreen extends StatefulWidget {
 }
 
 class _addProductScreenState extends State<addProductScreen> {
-  TextEditingController _nameTEControler = TextEditingController();
-  TextEditingController _UnitPriceTEControler = TextEditingController();
-  TextEditingController _QuantityTEControler = TextEditingController();
-  TextEditingController _TotalPriceTEControler = TextEditingController();
-  TextEditingController _ImageTEControler = TextEditingController();
+  final TextEditingController _nameTEControler = TextEditingController();
+  final TextEditingController _UnitPriceTEControler = TextEditingController();
+  final TextEditingController _QuantityTEControler = TextEditingController();
+  final TextEditingController _TotalPriceTEControler = TextEditingController();
+  final TextEditingController _ImageTEControler = TextEditingController();
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,23 +23,50 @@ class _addProductScreenState extends State<addProductScreen> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Form(
+          key: _formKey,
           child: Column(
             children: [
               TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                controller: _nameTEControler,
                 decoration: const InputDecoration(
                   hintText: "Name",
                   labelText: "Name",
                 ),
+                validator: (String? value){
+                  if(value == null || value.trim().isEmpty){
+                    return "Write your name";
+                  }
+                  return null;
+                },
               ),
               SizedBox(height: 10),
               TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                controller: _UnitPriceTEControler,
+                keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                   hintText: "Unit Price",
                   labelText: "Unit Price",
                 ),
+                validator: (String? value){
+                  if(value == null || value.trim().isEmpty){
+                    return "Write your Unit Price";
+                  }
+                  return null;
+                },
               ),
               SizedBox(height: 10),
               TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                controller: _QuantityTEControler,
+                validator: (String? value){
+                  if(value == null || value.trim().isEmpty){
+                    return "Write your Quantity";
+                  }
+                  return null;
+                },
+                keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                   hintText: "Quantity",
                   labelText: "Quantity",
@@ -45,6 +74,15 @@ class _addProductScreenState extends State<addProductScreen> {
               ),
               SizedBox(height: 10),
               TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                controller: _TotalPriceTEControler,
+                validator: (String? value){
+                  if(value == null || value.trim().isEmpty){
+                    return "Write your Total Price";
+                  }
+                  return null;
+                },
+                keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                   hintText: "Total Price",
                   labelText: "Total Price",
@@ -52,6 +90,14 @@ class _addProductScreenState extends State<addProductScreen> {
               ),
               SizedBox(height: 10),
               TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                controller: _ImageTEControler,
+                validator: (String? value){
+                  if(value == null || value.trim().isEmpty){
+                    return "Write your Image";
+                  }
+                  return null;
+                },
                 decoration: const InputDecoration(
                   hintText: "Image",
                   labelText: "Image",
@@ -59,7 +105,11 @@ class _addProductScreenState extends State<addProductScreen> {
               ),
               SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  if(_formKey.currentState!.validate()){
+
+                  }
+                },
                 child: Text("Add"),
               ),
             ],
