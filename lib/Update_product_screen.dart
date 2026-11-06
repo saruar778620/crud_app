@@ -39,7 +39,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 16),
               TextFormField(
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 controller: _UnitPriceTEControler,
@@ -55,7 +55,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 16),
               TextFormField(
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 controller: _QuantityTEControler,
@@ -71,7 +71,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
                   labelText: "Quantity",
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 16),
               TextFormField(
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 controller: _TotalPriceTEControler,
@@ -87,7 +87,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
                   labelText: "Total Price",
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 16),
               TextFormField(
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 controller: _ImageTEControler,
@@ -102,7 +102,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
                   labelText: "Image",
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
                   if(_formKey.currentState!.validate()){
